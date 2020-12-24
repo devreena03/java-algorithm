@@ -16,20 +16,26 @@ public class FebonasisSeries {
 
 	private void printSeries(int[] febSer) {
 		for (int i : febSer) {
-			System.out.println(i);
+			System.out.print(i+" ");
 		}
+		System.out.println();
 	}
 
-	public int tail(int n) {
-		return tail(n, 0, 1);
+	public void head(int n) {
+		int[] febSer = new int[n];
+		head(n-1, febSer);
+		printSeries(febSer);
 	}
 
-	private int tail(int n, int a, int b) {
-		if(n==0)
-			return a;
-		if(n==1)
-			return b;
-		System.out.println(n);
-		return tail(n-1, b, a+b);
+	private void head(int n, int[] febSer) {
+		if(n==0 || n==1) {
+			febSer[n] = 1;
+			return;
+		}
+		head(n-1, febSer);
+		head(n-2, febSer);
+		
+		febSer[n] = febSer[n-1] + febSer[n-2];
+		
 	}
 }
