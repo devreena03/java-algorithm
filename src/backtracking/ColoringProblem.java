@@ -1,13 +1,13 @@
-package backtracing;
+package backtracking;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ColoringProblem {
-	int[][] adjancencyMatrix;
-	int[] colors;
-	int noOfNode;
-	int noOfColor;
+	private int[][] adjancencyMatrix;
+	private int[] colors;
+	private int noOfNode;
+	private int noOfColor;
 	private static Map<Integer, String> colorsLookup = new HashMap<>();
 
 	static {
@@ -28,7 +28,7 @@ public class ColoringProblem {
 
 	public void solve() {
 
-		colors[0] = 1;
+		this.colors[0] = 1;
 
 		if (setColor(1)) {
 			printColorApplied();
@@ -38,14 +38,14 @@ public class ColoringProblem {
 	}
 
 	private boolean setColor(int node_index) {
-		if(node_index == noOfNode) {
+		if(node_index == this.noOfNode) {
 			return true;
 		}
 		
-		for(int color=1; color<= noOfColor;color++) {
+		for(int color=1; color<= this.noOfColor;color++) {
 			
 			if(isValidColor(node_index,color)) {
-				colors[node_index] = color;
+				this.colors[node_index] = color;
 				
 				if(setColor(node_index+1))
 				   return true;
@@ -56,8 +56,8 @@ public class ColoringProblem {
 	}
 
 	private boolean isValidColor(int node_index, int color) {
-		for(int row=0; row<noOfNode; row++) {
-			if(adjancencyMatrix[row][node_index]==1 && colors[row]==color) 
+		for(int row=0; row<this.noOfNode; row++) {
+			if(this.adjancencyMatrix[row][node_index]==1 && this.colors[row]==color) 
 				  return false;
 			}
 		
@@ -66,8 +66,8 @@ public class ColoringProblem {
 
 	private void printColorApplied() {
 		
-		for(int i=0;i<noOfNode;i++) {
-			System.out.println("Node :" + i+ " has color: "+colorsLookup.get(colors[i]));
+		for(int i=0;i<this.noOfNode;i++) {
+			System.out.println("Node :" + i+ " has color: "+ colorsLookup.get(colors[i]));
 		}
 		
 	}

@@ -1,10 +1,10 @@
-package backtracing;
+package backtracking;
 
 public class HamiltonianPath {
 
-	int[][] hamiltonianGraph;
-	int[] hamiltonianPath;
-	int noOfVertex;
+	private int[][] hamiltonianGraph;
+	private int[] hamiltonianPath;
+	private int noOfVertex;
 
 	HamiltonianPath(int[][] hamiltonianGraph) {
 		this.hamiltonianGraph = hamiltonianGraph;
@@ -14,7 +14,7 @@ public class HamiltonianPath {
 
 	public void solve() {
 
-		hamiltonianPath[0] = 0;
+		this.hamiltonianPath[0] = 0;
 
 		if (setHamiltonianPath(1)) {
 			printHamiltonianPath();
@@ -26,12 +26,12 @@ public class HamiltonianPath {
 	private boolean setHamiltonianPath(int path_index) {
 
 		if (path_index == noOfVertex) {
-			return hamiltonianGraph[hamiltonianPath[0]][hamiltonianPath[noOfVertex - 1]] == 1;
+			return this.hamiltonianGraph[this.hamiltonianPath[0]][this.hamiltonianPath[noOfVertex - 1]] == 1;
 		}
 
 		for (int vertex = 1; vertex < noOfVertex; vertex++) {
 			if (isvalidMove(path_index, vertex)) {
-				hamiltonianPath[path_index] = vertex;
+				this.hamiltonianPath[path_index] = vertex;
 				if (setHamiltonianPath(path_index + 1)) {
 					return true;
 				}
@@ -48,12 +48,12 @@ public class HamiltonianPath {
 		
 				
 		//whether 2 nodes are connected
-		if(hamiltonianGraph[hamiltonianPath[path_index-1]][vertex]==0) {
+		if(this.hamiltonianGraph[this.hamiltonianPath[path_index-1]][vertex]==0) {
 			return false;
 		}
 		
 		for (int i = 0; i < path_index; i++) {
-			if (hamiltonianPath[i] == vertex) {
+			if (this.hamiltonianPath[i] == vertex) {
 				return false;
 			}
 		}
@@ -61,10 +61,10 @@ public class HamiltonianPath {
 	}
 
 	private void printHamiltonianPath() {
-		for (int is : hamiltonianPath) {
+		for (int is : this.hamiltonianPath) {
 			System.out.print(is + " ");
 		}
-		System.out.print(hamiltonianPath[0]);
+		System.out.print(this.hamiltonianPath[0]);
 	}
 
 }
