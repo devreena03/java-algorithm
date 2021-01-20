@@ -8,7 +8,38 @@ public class AlgoTest {
 		
 		//knapsackTest();
 		
-		rodCutting();
+		//rodCutting();
+		
+		//subsetSum();
+		
+//		largestSumSubarray();
+		
+		eggTest();
+		
+	}
+
+	private static void eggTest() {
+		EggFloorProblem egg = new EggFloorProblem();
+		System.out.println(egg.solve());
+		
+	}
+
+	private static void largestSumSubarray() {
+		//int[] values = {0, 1, 3, -5, 4, -3, 8 }; //4,-3,8
+		//int[] values = {0, 1, -2, 3, 4, -8, 12 }; // 12
+		int[] values = {0, 8, -5, 4, 3, -2, 1 }; // 8,-5,4,3
+		LargestSumSubarray s = new LargestSumSubarray(values);
+		s.solve();
+		s.showSubArray();
+		
+	}
+
+	private static void subsetSum() {
+		int sum = 5;
+		int[] integerList = {0,4,2,-2,3,1};
+		SubsetSum s = new SubsetSum(sum, integerList);
+		s.solve();
+		s.showResult();
 		
 	}
 
