@@ -70,7 +70,7 @@ public class Maze {
 		if (mazeMatrix[row][column] == 0)
 			return false;
 		
-		if(this.solutionMatrix[row][column] == 1)
+		if(this.solutionMatrix[row][column] == 1) //value has already considered
 			return false;
 		
 		return true;
