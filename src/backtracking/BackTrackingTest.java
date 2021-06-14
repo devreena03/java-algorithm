@@ -4,11 +4,11 @@ public class BackTrackingTest {
 
 	public static void main(String[] args) {
 		
-		nQueensTest();
-		hamiltonianPathTest();
-		coloringProblemTest(); 
-		mazeTest();
-		knightTourTest();
+//		nQueensTest();
+//		hamiltonianPathTest();
+//		coloringProblemTest(); 
+//		mazeTest();
+//		knightTourTest();
 		sudokuTest();
  
 	}
